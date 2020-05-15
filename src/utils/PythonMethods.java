@@ -1,12 +1,11 @@
 package utils;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  @author Jeffrey Ng
  @created 2020-05-14 */
-public class PythonMethodUtils {
+public class PythonMethods {
 
     /*
         toString methods courtesy of Java Array Docs
@@ -439,67 +438,86 @@ public class PythonMethodUtils {
     }
 
     public static void main(String[] args) {
-//        print("Hello World");
-//        print("Hello" + "World");
-//        print("Hello", new byte[] {1, 2, 3});
-//        print("Hello", new int[] {1, 2, 3});
-//        print("Hello", Arrays.asList(1, 2, 3));
-//
-//        Map<Integer, Integer> map = new HashMap<>();
-//        map.put(1, 1);
-//        map.put(2, 2);
-//        map.put(3, 3);
-//        System.out.println(map);
-//        print("Hello", map);
-//        print("Hello" + map);
-//
-//        Set<Integer> set = new HashSet<>();
-//        set.add(1);
-//        set.add(2);
-//        set.add(3);
-//        System.out.println(set);
-//        print("Hello", set);
-//        print("Hello" + set);
-//
-//        int[] intArr1 = new int[] {1, 2, 3};
-//        int[] intArr2 = new int[] {4, 5, 6};
-//        for (int[] tup : zip(intArr1, intArr2)) {
-//            int i = tup[0];
-//            int j = tup[1];
-//            print(i, j);
-//        }
+        print("Hello World");
+        print("Hello" + "World");
+        print("Hello", new byte[] {1, 2, 3});
+        print("Hello", new int[] {1, 2, 3});
+        print("Hello", Arrays.asList(1, 2, 3));
 
-//        String[] stringArr1 = new String[] {"Jeffrey", "Claudia", "Geoff",};
-//        String[] stringArr2 = new String[] {"Alana", "Manny", "Robert",};
-//        String[] stringArr3 = new String[] {"Reed", "Kathryn", "Sergiy",};
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(1, 1);
+        map.put(2, 2);
+        map.put(3, 3);
+        System.out.println(map);
+        print("Hello", map);
+        print("Hello" + map);
 
-//        for (String[] tup : zip(stringArr1, stringArr2)) {
-//            String x = tup[0];
-//            String y = tup[1];
-//            print(x, y);
-//        }
-//        for (String[] tup : zip(stringArr1, stringArr2, stringArr3)) {
-//            String x = tup[0];
-//            String y = tup[1];
-//            String z = tup[2];
-//            print(x, y, z);
-//        }
+        Set<Integer> set = new HashSet<>();
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        System.out.println(set);
+        print("Hello", set);
+        print("Hello" + set);
 
-//        List<String> stringList1 = Arrays.asList(stringArr1);
-//        List<String> stringList2 = Arrays.asList(stringArr2);
-//        List<String> stringList3 = Arrays.asList(stringArr3);
-//        zip(stringList1, stringList2).forEach(PythonMethodUtils::print);
-//        zip(stringList1, stringList2, stringList3).forEach(PythonMethodUtils::print);
+        int[] intArr1 = new int[] {1, 2, 3};
+        int[] intArr2 = new int[] {4, 5, 6};
+        for (int[] tup : zip(intArr1, intArr2)) {
+            int i = tup[0];
+            int j = tup[1];
+            print(i, j);
+        }
 
-//        List emptyList1 = new ArrayList();
-//        List emptyList2 = new ArrayList();
-//        zip(emptyList1, emptyList2).forEach(PythonMethodUtils::print);
+        String[] stringArr1 = new String[] {"Jeffrey", "Claudia", "Geoff",};
+        String[] stringArr2 = new String[] {"Alana", "Manny", "Robert",};
+        String[] stringArr3 = new String[] {"Reed", "Kathryn", "Sergiy",};
 
-//        List<String> enumerateStrings = Arrays.asList("Jeffrey", "Claudia", "Geoff");
-//        List<List> e = enumerate(enumerateStrings);
-//        e.forEach(PythonMethodUtils::print);
-//
-//        List<List> eWithO = enumerate(enumerateStrings, 2);
-//        eWithO.forEach(PythonMethodUtils::print);
+        Object[] objectArr1 = new String[] {"Jeffrey", "Claudia", "Geoff",};
+        Object[] objectArr2 = new String[] {"Alana", "Manny", "Robert",};
+        Object[] objectArr3 = new String[] {"Reed", "Kathryn", "Sergiy",};
+
+        for (String[] tup : zip(stringArr1, stringArr2)) {
+            String x = tup[0];
+            String y = tup[1];
+            print(x, y);
+        }
+        for (String[] tup : zip(stringArr1, stringArr2, stringArr3)) {
+            String x = tup[0];
+            String y = tup[1];
+            String z = tup[2];
+            print(x, y, z);
+        }
+        for (Object[] tup : zip(objectArr1, objectArr2)) {
+            Object x = tup[0];
+            Object y = tup[1];
+            print(x, y);
+        }
+        for (Object[] tup : zip(objectArr1, objectArr2, objectArr3)) {
+            Object x = tup[0];
+            Object y = tup[1];
+            Object z = tup[2];
+            print(x, y, z);
+        }
+
+        List<String> stringList1 = Arrays.asList(stringArr1);
+        List<String> stringList2 = Arrays.asList(stringArr2);
+        List<String> stringList3 = Arrays.asList(stringArr3);
+        List<Integer> integerList = Arrays.asList(1,2,3);
+
+        zip(stringList1, stringList2).forEach(PythonMethods::print);
+        zip(stringList1, stringList2, stringList3).forEach(PythonMethods::print);
+        zip(stringList1, stringList2, integerList).forEach(PythonMethods::print);
+
+        List<Integer> emptyList1 = new ArrayList<>();
+        List<Integer> emptyList2 = new ArrayList<>();
+        zip(emptyList1, emptyList2).forEach(PythonMethods::print);
+
+        List<String> enumerateStrings = Arrays.asList("Jeffrey", "Claudia", "Geoff");
+        List<List> e = enumerate(enumerateStrings);
+        e.forEach(PythonMethods::print);
+
+        List<List> eWithO = enumerate(enumerateStrings, 2);
+        eWithO.forEach(PythonMethods::print);
+
     }
 }
