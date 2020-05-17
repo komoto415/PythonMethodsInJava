@@ -9,78 +9,197 @@ import static utils.PythonMethods.*;
  @author Jeffrey Ng
  @created 2020-05-16 */
 public class PythonCollections {
-    // list()
-    public static <T> List<T> list(T... x) {
-        return new ArrayList<>(Arrays.asList(x));
+    public static List list(byte[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return l;
     }
 
-    public static List list(String x) {
-        return x.chars().mapToObj(c -> (char) c).collect(Collectors.toList());
+    public static List list(short[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return l;
     }
 
-    public static List list(Set x) {
-        return new ArrayList(x);
+    public static List list(int[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return l;
     }
 
-    public static List list(Map x) {
-        return new ArrayList(x.keySet());
+    public static List list(long[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return l;
+    }
+
+    public static List list(float[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return l;
+    }
+
+    public static List list(double[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return l;
+    }
+
+    public static List list(boolean[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return l;
+    }
+
+    public static <T> List<T> list(T... a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return l;
+    }
+
+    public static List list(String a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length(); i++) {
+            l.add(a.charAt(i));
+        }
+        return l;
+    }
+
+    public static List list(Set a) {
+        return new ArrayList(a);
+    }
+
+    public static List list(Map a) {
+        return new ArrayList(a.keySet());
     }
 
     // set()
-    public static Set set(int[] x) {
-        return set(Arrays.stream(x).boxed().collect(Collectors.toList()));
+    public static Set set(byte[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return set(l);
     }
 
-    public static Set set(Object[] x) {
-        return set(Arrays.stream(x).collect(Collectors.toList()));
+    public static Set set(short[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return set(l);
     }
 
-    public static Set set(String[] x) {
-        return set(Arrays.stream(x).collect(Collectors.toList()));
+    public static Set set(int[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return set(l);
     }
 
-    public static Set set(String x) {
-        return set(x.chars().mapToObj(c -> (char) c).collect(Collectors.toList()));
+    public static Set set(long[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return set(l);
     }
 
-    public static Set set(List x) {
-        return new HashSet(x);
+    public static Set set(float[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return set(l);
+    }
+
+    public static Set set(double[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return set(l);
+    }
+
+    public static Set set(boolean[] a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return set(l);
+    }
+
+    public static <T> Set<T> set(T... a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length; i++) {
+            l.add(a[i]);
+        }
+        return set(l);
+    }
+
+    public static Set set(String a) {
+        List l = new ArrayList();
+        for (int i = 0; i < a.length(); i++) {
+            l.add(a.charAt(i));
+        }
+        return set(l);
+    }
+
+    public static Set set(List a) {
+        return new HashSet(a);
     }
 
     // dict()
-    public static Map dict(List<List> x) {
-        assert enforceInnerSize(x);
+    public static Map dict(List<List> a) {
+        assert enforceInnerSize(a);
         Map map = new HashMap();
-        for (int i = 0; i < x.size(); i++) {
-            List inner = x.get(i);
+        for (int i = 0; i < a.size(); i++) {
+            List inner = a.get(i);
             map.put(inner.get(0), inner.get(1));
         }
         return map;
     }
 
-    private static boolean enforceInnerSize(List<List> x) {
-        for (int i = 0; i < x.size(); i++) {
-            if (x.get(i).size() != 2) {
+    private static boolean enforceInnerSize(List<List> a) {
+        for (int i = 0; i < a.size(); i++) {
+            if (a.get(i).size() != 2) {
                 return false;
             }
         }
         return true;
     }
 
-    public static Map dict(List... x) {
-        assert enforceInnerSize(x);
+    public static Map dict(List... a) {
+        assert enforceInnerSize(a);
         Map map = new HashMap();
-        for (int i = 0; i < x.length; i++) {
-            List inner = x[i];
+        for (int i = 0; i < a.length; i++) {
+            List inner = a[i];
             map.put(inner.get(0), inner.get(1));
         }
 
         return map;
     }
 
-    private static boolean enforceInnerSize(List... x) {
-        for (int i = 0; i < x.length; i++) {
-            if (x[i].size() != 2) {
+    private static boolean enforceInnerSize(List... a) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[i].size() != 2) {
                 return false;
             }
         }
@@ -88,39 +207,19 @@ public class PythonCollections {
     }
 
     // zip()
-    public static byte[][] zip(byte[]... zipMe) {
-        int capacity = Integer.MAX_VALUE;
-        int zipInnerSize = zipMe.length;
-        for (byte[] l : zipMe) {
-            if (l.length < capacity) {
-                capacity = l.length;
+    public static byte[][] zip(byte[]... a) {
+        int c = a.length == 0 ? 0 : Integer.MAX_VALUE;
+        int ic = a.length;
+        for (byte[] l : a) {
+            if (l.length < c) {
+                c = l.length;
             }
         }
-        byte[][] zipped = new byte[capacity][zipInnerSize];
-        for (int i = 0; i < capacity; i++) {
-            byte[] inner = new byte[zipInnerSize];
-            for (int j = 0; j < zipInnerSize; j++) {
-                inner[j] = zipMe[j][i];
-            }
-            zipped[i] = inner;
-        }
-
-        return zipped;
-    }
-
-    public static short[][] zip(short[]... zipMe) {
-        int capacity = Integer.MAX_VALUE;
-        int zipInnerSize = zipMe.length;
-        for (short[] l : zipMe) {
-            if (l.length < capacity) {
-                capacity = l.length;
-            }
-        }
-        short[][] zipped = new short[capacity][zipInnerSize];
-        for (int i = 0; i < capacity; i++) {
-            short[] inner = new short[zipInnerSize];
-            for (int j = 0; j < zipInnerSize; j++) {
-                inner[j] = zipMe[j][i];
+        byte[][] zipped = new byte[c][ic];
+        for (int i = 0; i < c; i++) {
+            byte[] inner = new byte[ic];
+            for (int j = 0; j < ic; j++) {
+                inner[j] = a[j][i];
             }
             zipped[i] = inner;
         }
@@ -128,39 +227,19 @@ public class PythonCollections {
         return zipped;
     }
 
-    public static int[][] zip(int[]... zipMe) {
-        int capacity = Integer.MAX_VALUE;
-        int zipInnerSize = zipMe.length;
-        for (int[] l : zipMe) {
-            if (l.length < capacity) {
-                capacity = l.length;
+    public static short[][] zip(short[]... a) {
+        int c = a.length == 0 ? 0 : Integer.MAX_VALUE;
+        int ic = a.length;
+        for (short[] l : a) {
+            if (l.length < c) {
+                c = l.length;
             }
         }
-        int[][] zipped = new int[capacity][zipInnerSize];
-        for (int i = 0; i < capacity; i++) {
-            int[] inner = new int[zipInnerSize];
-            for (int j = 0; j < zipInnerSize; j++) {
-                inner[j] = zipMe[j][i];
-            }
-            zipped[i] = inner;
-        }
-
-        return zipped;
-    }
-
-    public static long[][] zip(long[]... zipMe) {
-        int capacity = Integer.MAX_VALUE;
-        int zipInnerSize = zipMe.length;
-        for (long[] l : zipMe) {
-            if (l.length < capacity) {
-                capacity = l.length;
-            }
-        }
-        long[][] zipped = new long[capacity][zipInnerSize];
-        for (int i = 0; i < capacity; i++) {
-            long[] inner = new long[zipInnerSize];
-            for (int j = 0; j < zipInnerSize; j++) {
-                inner[j] = zipMe[j][i];
+        short[][] zipped = new short[c][ic];
+        for (int i = 0; i < c; i++) {
+            short[] inner = new short[ic];
+            for (int j = 0; j < ic; j++) {
+                inner[j] = a[j][i];
             }
             zipped[i] = inner;
         }
@@ -168,39 +247,19 @@ public class PythonCollections {
         return zipped;
     }
 
-    public static float[][] zip(float[]... zipMe) {
-        int capacity = Integer.MAX_VALUE;
-        int zipInnerSize = zipMe.length;
-        for (float[] l : zipMe) {
-            if (l.length < capacity) {
-                capacity = l.length;
+    public static int[][] zip(int[]... a) {
+        int c = a.length == 0 ? 0 : Integer.MAX_VALUE;
+        int ic = a.length;
+        for (int[] l : a) {
+            if (l.length < c) {
+                c = l.length;
             }
         }
-        float[][] zipped = new float[capacity][zipInnerSize];
-        for (int i = 0; i < capacity; i++) {
-            float[] inner = new float[zipInnerSize];
-            for (int j = 0; j < zipInnerSize; j++) {
-                inner[j] = zipMe[j][i];
-            }
-            zipped[i] = inner;
-        }
-
-        return zipped;
-    }
-
-    public static double[][] zip(double[]... zipMe) {
-        int capacity = Integer.MAX_VALUE;
-        int zipInnerSize = zipMe.length;
-        for (double[] l : zipMe) {
-            if (l.length < capacity) {
-                capacity = l.length;
-            }
-        }
-        double[][] zipped = new double[capacity][zipInnerSize];
-        for (int i = 0; i < capacity; i++) {
-            double[] inner = new double[zipInnerSize];
-            for (int j = 0; j < zipInnerSize; j++) {
-                inner[j] = zipMe[j][i];
+        int[][] zipped = new int[c][ic];
+        for (int i = 0; i < c; i++) {
+            int[] inner = new int[ic];
+            for (int j = 0; j < ic; j++) {
+                inner[j] = a[j][i];
             }
             zipped[i] = inner;
         }
@@ -208,39 +267,19 @@ public class PythonCollections {
         return zipped;
     }
 
-    public static boolean[][] zip(boolean[]... zipMe) {
-        int capacity = Integer.MAX_VALUE;
-        int zipInnerSize = zipMe.length;
-        for (boolean[] l : zipMe) {
-            if (l.length < capacity) {
-                capacity = l.length;
+    public static long[][] zip(long[]... a) {
+        int c = a.length == 0 ? 0 : Integer.MAX_VALUE;
+        int ic = a.length;
+        for (long[] l : a) {
+            if (l.length < c) {
+                c = l.length;
             }
         }
-        boolean[][] zipped = new boolean[capacity][zipInnerSize];
-        for (int i = 0; i < capacity; i++) {
-            boolean[] inner = new boolean[zipInnerSize];
-            for (int j = 0; j < zipInnerSize; j++) {
-                inner[j] = zipMe[j][i];
-            }
-            zipped[i] = inner;
-        }
-
-        return zipped;
-    }
-
-    public static String[][] zip(String[]... zipMe) {
-        int capacity = Integer.MAX_VALUE;
-        int zipInnerSize = zipMe.length;
-        for (String[] l : zipMe) {
-            if (l.length < capacity) {
-                capacity = l.length;
-            }
-        }
-        String[][] zipped = new String[capacity][zipInnerSize];
-        for (int i = 0; i < capacity; i++) {
-            String[] inner = new String[zipInnerSize];
-            for (int j = 0; j < zipInnerSize; j++) {
-                inner[j] = zipMe[j][i];
+        long[][] zipped = new long[c][ic];
+        for (int i = 0; i < c; i++) {
+            long[] inner = new long[ic];
+            for (int j = 0; j < ic; j++) {
+                inner[j] = a[j][i];
             }
             zipped[i] = inner;
         }
@@ -248,19 +287,19 @@ public class PythonCollections {
         return zipped;
     }
 
-    public static Object[][] zip(Object[]... zipMe) {
-        int capacity = Integer.MAX_VALUE;
-        int zipInnerSize = zipMe.length;
-        for (Object[] l : zipMe) {
-            if (l.length < capacity) {
-                capacity = l.length;
+    public static float[][] zip(float[]... a) {
+        int c = a.length == 0 ? 0 : Integer.MAX_VALUE;
+        int ic = a.length;
+        for (float[] l : a) {
+            if (l.length < c) {
+                c = l.length;
             }
         }
-        Object[][] zipped = new Object[capacity][zipInnerSize];
-        for (int i = 0; i < capacity; i++) {
-            Object[] inner = new Object[zipInnerSize];
-            for (int j = 0; j < zipInnerSize; j++) {
-                inner[j] = zipMe[j][i];
+        float[][] zipped = new float[c][ic];
+        for (int i = 0; i < c; i++) {
+            float[] inner = new float[ic];
+            for (int j = 0; j < ic; j++) {
+                inner[j] = a[j][i];
             }
             zipped[i] = inner;
         }
@@ -268,18 +307,98 @@ public class PythonCollections {
         return zipped;
     }
 
-    public static List<List> zip(List... zipMe) {
-        int capacity = Integer.MAX_VALUE;
-        int zipInnerSize = zipMe.length;
-        for (List l : zipMe) {
-            if (l.size() < capacity) {
-                capacity = l.size();
+    public static double[][] zip(double[]... a) {
+        int c = a.length == 0 ? 0 : Integer.MAX_VALUE;
+        int ic = a.length;
+        for (double[] l : a) {
+            if (l.length < c) {
+                c = l.length;
             }
         }
-        List<List> zipped = new ArrayList(capacity);
-        for (int i = 0; i < capacity; i++) {
-            List inner = new ArrayList(zipInnerSize);
-            for (List list : zipMe) {
+        double[][] zipped = new double[c][ic];
+        for (int i = 0; i < c; i++) {
+            double[] inner = new double[ic];
+            for (int j = 0; j < ic; j++) {
+                inner[j] = a[j][i];
+            }
+            zipped[i] = inner;
+        }
+
+        return zipped;
+    }
+
+    public static boolean[][] zip(boolean[]... a) {
+        int c = a.length == 0 ? 0 : Integer.MAX_VALUE;
+        int ic = a.length;
+        for (boolean[] l : a) {
+            if (l.length < c) {
+                c = l.length;
+            }
+        }
+        boolean[][] zipped = new boolean[c][ic];
+        for (int i = 0; i < c; i++) {
+            boolean[] inner = new boolean[ic];
+            for (int j = 0; j < ic; j++) {
+                inner[j] = a[j][i];
+            }
+            zipped[i] = inner;
+        }
+
+        return zipped;
+    }
+
+    public static String[][] zip(String[]... a) {
+        int c = a.length == 0 ? 0 : Integer.MAX_VALUE;
+        int ic = a.length;
+        for (String[] l : a) {
+            if (l.length < c) {
+                c = l.length;
+            }
+        }
+        String[][] zipped = new String[c][ic];
+        for (int i = 0; i < c; i++) {
+            String[] inner = new String[ic];
+            for (int j = 0; j < ic; j++) {
+                inner[j] = a[j][i];
+            }
+            zipped[i] = inner;
+        }
+
+        return zipped;
+    }
+
+    public static Object[][] zip(Object[]... a) {
+        int c = a.length == 0 ? 0 : Integer.MAX_VALUE;
+        int ic = a.length;
+        for (Object[] l : a) {
+            if (l.length < c) {
+                c = l.length;
+            }
+        }
+        Object[][] zipped = new Object[c][ic];
+        for (int i = 0; i < c; i++) {
+            Object[] inner = new Object[ic];
+            for (int j = 0; j < ic; j++) {
+                inner[j] = a[j][i];
+            }
+            zipped[i] = inner;
+        }
+
+        return zipped;
+    }
+
+    public static List<List> zip(List... a) {
+        int c = a.length == 0 ? 0 : Integer.MAX_VALUE;
+        int ic = a.length;
+        for (List l : a) {
+            if (l.size() < c) {
+                c = l.size();
+            }
+        }
+        List<List> zipped = new ArrayList(c);
+        for (int i = 0; i < c; i++) {
+            List inner = new ArrayList(ic);
+            for (List list : a) {
                 inner.add(list.get(i));
             }
             zipped.add(Collections.unmodifiableList(inner));
@@ -288,14 +407,14 @@ public class PythonCollections {
         return zipped;
     }
 
-    public static List<List> enumerate(List x) {
-        return enumerate(x, 0);
+    public static List<List> enumerate(List a) {
+        return enumerate(a, 0);
     }
 
-    public static List<List> enumerate(List x, int o) {
-        List<List> enumerated = new ArrayList(x.size());
-        for (int i = o; i < x.size() + o; i++) {
-            enumerated.add(List.of(i, x.get(i - o)));
+    public static List<List> enumerate(List a, int o) {
+        List<List> enumerated = new ArrayList(a.size());
+        for (int i = o; i < a.size() + o; i++) {
+            enumerated.add(List.of(i, a.get(i - o)));
         }
 
         return enumerated;
