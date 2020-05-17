@@ -470,7 +470,6 @@ public class PythonCollections {
 //        zip(stringList1, stringList2, integerList).forEach(PythonMethods::print);
 
         List<Integer> emptyList1 = list();
-        print(emptyList1);
         List<Integer> emptyList2 = new ArrayList<>();
 //        zip(emptyList1, emptyList2).forEach(PythonMethods::print);
 
@@ -495,23 +494,13 @@ public class PythonCollections {
         Set<Integer> intArrToSet = set(intArr1);
 //        print(intArrToSet);
 
-        List tup1 = new ArrayList(2);
-        tup1.add(me);
-        tup1.add(4);
-        List tup2 = new ArrayList(2);
-        tup2.add("Claudia");
-        tup2.add(1);
-        List tup3 = new ArrayList(2);
-        tup3.add("Geoff");
-        tup3.add(2);
-
+        List tup1 = list(me, 4);
+        List tup2 = list("Claudia", 1);
+        List tup3 = list("Geoff", 2);
         Map<String, Integer> mapWithLists = dict(tup1, tup2, tup3);
 //        print(mapWithLists);
 
-        List<List> listOfTups = new ArrayList<>();
-        listOfTups.add(tup1);
-        listOfTups.add(tup2);
-        listOfTups.add(tup3);
+        List<List> listOfTups = list(tup1, tup2, tup3);
 
         Map<String, Integer> mapWithNestLists = dict(listOfTups);
 //        print(mapWithNestLists);
